@@ -20,6 +20,7 @@ while(true){
             rename("./upload/$value","./data/$value");
         }
     }
+    sleep(3);
 }
 
 function is_scandir(string $dirname="",array $ext_list = ["png","jpg"]){
@@ -31,6 +32,5 @@ function is_scandir(string $dirname="",array $ext_list = ["png","jpg"]){
             $is_filelest[] = $value;
         }
     }
-    sleep(30);
     return count($is_filelest)>0 ? $is_filelest : false;
 }
