@@ -14,13 +14,15 @@ nohup php File_Check.php &
 
 ```php:File_Check.php
 <?php
-while(true){
-    if($result = is_scandir("./upload")){
-        foreach($result as $key=>$value){
-            rename("./upload/$value","./data/$value");
+if($argv[0]){
+    while(true){
+        if($result = is_scandir("./upload")){
+            foreach($result as $key=>$value){
+                rename("./upload/$value","./data/$value");
+            }
         }
+        sleep(1);    
     }
-    sleep(3);
 }
 
 function is_scandir(string $dirname="",array $ext_list = ["png","jpg"]){
